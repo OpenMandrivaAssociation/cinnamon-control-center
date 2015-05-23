@@ -8,9 +8,12 @@
 %global gnome_menus_version 2.11.1
 %global libXrandr_version 1.2.99
 
+%define major 1
+%define libname %mklibname cinnamon-control-center %major
+
 Summary: Utilities to configure the Cinnamon desktop
 Name:    cinnamon-control-center
-Version: 2.4.2
+Version: 2.6.0
 Release: 1
 # The following files contain code from
 # ISC for panels/network/rfkill.h
@@ -103,10 +106,18 @@ allow to configure accessibility options, desktop fonts, keyboard and mouse
 properties, sound setup, desktop theme and background, user interface
 properties, screen resolution, and other settings.
 
+%package -n %libname
+Summary: The cinnamon control center library, a part of %{name}
+Group: System/Libraries
+
+%description -n %libname
+The cinnamon control center library, a part of %{name}
+
 %package devel
 Summary: Development package for %{name}
 Group: Development/C
 Requires: %{name} = %{version}-%{release}
+Requires: %{libname} = %{version}-%{release}
 
 %description devel
 Header files and libraries for developing Muffin plugins. Also includes
@@ -175,19 +186,21 @@ install -pm 0644 sounds/* $RPM_BUILD_ROOT/%{_datadir}/cinnamon-control-center/so
 %{_bindir}/cinnamon-sound-applet
 %config %{_sysconfdir}/xdg/autostart/cinnamon-sound-applet.desktop
 %config %{_sysconfdir}/xdg/menus/cinnamoncc.menu
-%{_libdir}/libcinnamon-control-center.so.1*
 %dir %{_libdir}/cinnamon-control-center-1/
+%dir %{_libdir}/cinnamon-control-center-1/panels
 %{_libdir}/cinnamon-control-center-1/panels/libcolor.so
 %{_libdir}/cinnamon-control-center-1/panels/libdate_time.so
 %{_libdir}/cinnamon-control-center-1/panels/libdisplay.so
-%{_libdir}/cinnamon-control-center-1/panels/libpower.so
+%{_libdir}/cinnamon-control-center-1/panels/libnetwork.so
 %{_libdir}/cinnamon-control-center-1/panels/libregion.so
-%{_libdir}/cinnamon-control-center-1/panels/libscreen.so
 %{_libdir}/cinnamon-control-center-1/panels/libsoundnua.so
 %{_libdir}/cinnamon-control-center-1/panels/libuniversal-access.so
 %{_libdir}/cinnamon-control-center-1/panels/libwacom-properties.so
 
 %{_datadir}/polkit-1/rules.d/cinnamon-control-center.rules
+
+%files -n %libname
+%{_libdir}/libcinnamon-control-center.so.%{major}*
 
 %files devel
 %{_includedir}/cinnamon-control-center-1/
