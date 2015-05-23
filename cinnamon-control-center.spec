@@ -11,7 +11,7 @@
 Summary: Utilities to configure the Cinnamon desktop
 Name:    cinnamon-control-center
 Version: 2.4.2
-Release: %mkrel 1
+Release: 1
 # The following files contain code from
 # ISC for panels/network/rfkill.h
 # And MIT for wacom/calibrator/calibrator.c
@@ -193,105 +193,4 @@ install -pm 0644 sounds/* $RPM_BUILD_ROOT/%{_datadir}/cinnamon-control-center/so
 %{_includedir}/cinnamon-control-center-1/
 %{_libdir}/libcinnamon-control-center.so
 %{_libdir}/pkgconfig/libcinnamon-control-center.pc
-
-
-%changelog
-* Thu Nov 27 2014 joequant <joequant> 2.4.2-1.mga5
-+ Revision: 799541
-- 2.4.2
-
-* Sun Nov 23 2014 joequant <joequant> 2.4.1-1.mga5
-+ Revision: 798407
-- upgrade to 2.4
-
-* Wed Oct 15 2014 umeabot <umeabot> 2.2.11-5.mga5
-+ Revision: 748047
-- Second Mageia 5 Mass Rebuild
-
-* Thu Sep 18 2014 umeabot <umeabot> 2.2.11-4.mga5
-+ Revision: 693608
-- Rebuild to fix library dependencies
-
-* Tue Sep 16 2014 umeabot <umeabot> 2.2.11-3.mga5
-+ Revision: 678396
-- Mageia 5 Mass Rebuild
-
-* Sat Aug 30 2014 joequant <joequant> 2.2.11-2.mga5
-+ Revision: 669408
-- upgrade to 2.2.11
-
-* Wed Aug 27 2014 fwang <fwang> 2.2.9-2.mga5
-+ Revision: 668648
-- rebuild for new upower
-
-* Tue Jun 10 2014 joequant <joequant> 2.2.9-1.mga5
-+ Revision: 635383
-- upgrade to 2.2.9
-
-* Wed May 14 2014 joequant <joequant> 2.2.7-1.mga5
-+ Revision: 622766
-- upgrade to 2.2.7
-
-  + wally <wally>
-    - require adwaita-icon-theme instead of obsolete gnome-icon-theme and gnome-icon-theme-symbolic
-
-* Fri Apr 18 2014 joequant <joequant> 2.2.3-1.mga5
-+ Revision: 616826
-- upgrade to 2.2
-
-* Sun Mar 30 2014 joequant <joequant> 2.0.9-4.mga5
-+ Revision: 610304
-- upgrade to upower-1.0
-
-  + dams <dams>
-    - rebuild for new upower
-
-* Wed Jan 08 2014 joequant <joequant> 2.0.9-2.mga4
-+ Revision: 565561
-- push to core/release
-
-* Wed Jan 01 2014 joequant <joequant> 2.0.9-1.mga4
-+ Revision: 563807
-- upgrade to 2.0.9
-
-* Wed Nov 27 2013 joequant <joequant> 2.0.4-3.mga4
-+ Revision: 553757
-- fix empty format panel
-
-* Wed Oct 23 2013 joequant <joequant> 2.0.4-2.mga4
-+ Revision: 546394
-- upgrade to 2.0.4
-
-* Tue Oct 22 2013 umeabot <umeabot> 2.0.2-2.mga4
-+ Revision: 541286
-- Mageia 4 Mass Rebuild
-
-* Fri Oct 11 2013 joequant <joequant> 2.0.2-1.mga4
-+ Revision: 495440
-- upgrade to 2.0.2
-
-* Mon Oct 07 2013 joequant <joequant> 2.0.1-1.mga4
-+ Revision: 492490
-- update to 2.0.1
-
-* Tue Oct 01 2013 joequant <joequant> 1.9.1-1.mga4
-+ Revision: 490049
-- update to 1.9.1
-
-* Sat Sep 14 2013 wally <wally> 1.9.0-0.4.git3106e49.mga4
-+ Revision: 478944
-- rebuild with new colord
-- use %%makeinstall_std macro
-- move autoreconf to %%build section
-- remove unneeded post/postun/posttrans scripts
-
-* Mon Sep 02 2013 joequant <joequant> 1.9.0-0.3.git3106e49.mga4
-+ Revision: 474291
-- update to latest git
-
-* Sat Aug 24 2013 joequant <joequant> 1.9.0-0.2.git7d365d0.mga4
-+ Revision: 470719
-- add build requires
-- fix requires
-- imported package cinnamon-control-center
 
