@@ -80,6 +80,7 @@ BuildRequires: pkgconfig(upower-glib)
 BuildRequires: pkgconfig(libnm-glib) >= 0.9
 BuildRequires: pkgconfig(libnm-gtk) >= 0.9
 BuildRequires: pkgconfig(polkit-gobject-1)
+BuildRequires: pkgconfig(NetworkManager)
 BuildRequires: gnome-common
 BuildRequires: cups-devel
 BuildRequires: pkgconfig(libgtop-2.0)
