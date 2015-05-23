@@ -45,7 +45,7 @@ Requires: libxrandr >= %{libXrandr_version}
 # For the user languages
 Requires: iso-codes
 # For the printers panel
-Requires: cups-pk-helper
+#Requires: cups-pk-helper
 # For the network panel
 Requires: networkmanager-applet
 # For the info/details panel
