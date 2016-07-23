@@ -1,5 +1,3 @@
-%global _internal_version 8475c0d
-%global _artwork_version   4.4
 %global glib2_version 2.31.0
 %global gtk3_version 3.5.13
 %global csd_version 2.3.0
@@ -13,7 +11,7 @@
 
 Summary: Utilities to configure the Cinnamon desktop
 Name:    cinnamon-control-center
-Version: 2.6.0
+Version: 3.0.1
 Release: 1
 # The following files contain code from
 # ISC for panels/network/rfkill.h
@@ -26,11 +24,6 @@ Group:  Graphical desktop/Cinnamon
 License: GPLv2+ and LGPLv2+ and MIT and ISC
 URL:     http://cinnamon.linuxmint.com
 Source0: cinnamon-control-center-%{version}.tar.gz
-#SourceGet0: https://github.com/linuxmint/cinnamon-control-center/archive/%{version}.tar.gz
-Source1: http://leigh123linux.fedorapeople.org/pub/cinnamon-control-center-sounds/source/cinnamon-control-center-sounds-1.0.0.tar.xz
-
-#Source0: cinnamon-control-center-%{version}.git%{_internal_version}.tar.gz
-##SourceGet0: https://github.com/linuxmint/cinnamon-control-center/tarball/%{_internal_version}
 
 Requires: cinnamon-settings-daemon >= %{csd_version}
 Requires: hicolor-icon-theme
@@ -129,7 +122,6 @@ utilities for testing Metacity/Muffin themes.
 
 %prep
 %setup -q
-tar -xJf %{SOURCE1}
 chmod +x autogen.sh
 NOCONFIGURE=1 ./autogen.sh
 
@@ -169,25 +161,18 @@ find $RPM_BUILD_ROOT -name '*.la' -delete
 chrpath --delete $RPM_BUILD_ROOT%{_libdir}/cinnamon-control-center-1/panels/*.so
 chrpath --delete $RPM_BUILD_ROOT%{_bindir}/cinnamon-control-center
 
-# install sound files
-mkdir -p $RPM_BUILD_ROOT/%{_datadir}/cinnamon-control-center/sounds/
-install -pm 0644 sounds/* $RPM_BUILD_ROOT/%{_datadir}/cinnamon-control-center/sounds/
 
 %find_lang %{name}-timezones
 
 %files -f %{name}-timezones.lang
 %doc AUTHORS COPYING README
 %{_datadir}/cinnamon-control-center/ui/
-%{_datadir}/cinnamon-control-center/sounds/*.oga
 %{_datadir}/applications/*.desktop
 %{_datadir}/desktop-directories/*
 %{_datadir}/icons/hicolor/*/*/*
-%{_datadir}/cinnamon-control-center/icons/
 %{_datadir}/cinnamon-control-center/datetime/
 # list all binaries explicitly, so we notice if one goes missing
 %{_bindir}/cinnamon-control-center
-%{_bindir}/cinnamon-sound-applet
-%config %{_sysconfdir}/xdg/autostart/cinnamon-sound-applet.desktop
 %config %{_sysconfdir}/xdg/menus/cinnamoncc.menu
 %dir %{_libdir}/cinnamon-control-center-1/
 %dir %{_libdir}/cinnamon-control-center-1/panels
@@ -196,8 +181,6 @@ install -pm 0644 sounds/* $RPM_BUILD_ROOT/%{_datadir}/cinnamon-control-center/so
 %{_libdir}/cinnamon-control-center-1/panels/libdisplay.so
 %{_libdir}/cinnamon-control-center-1/panels/libnetwork.so
 %{_libdir}/cinnamon-control-center-1/panels/libregion.so
-%{_libdir}/cinnamon-control-center-1/panels/libsoundnua.so
-%{_libdir}/cinnamon-control-center-1/panels/libuniversal-access.so
 %{_libdir}/cinnamon-control-center-1/panels/libwacom-properties.so
 
 %{_datadir}/polkit-1/rules.d/cinnamon-control-center.rules
