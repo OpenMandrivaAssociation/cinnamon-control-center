@@ -11,7 +11,7 @@
 
 Summary: Utilities to configure the Cinnamon desktop
 Name:    cinnamon-control-center
-Version: 3.2.1
+Version: 4.0.1
 Release: 1
 # The following files contain code from
 # ISC for panels/network/rfkill.h
@@ -95,6 +95,8 @@ BuildRequires: pkgconfig(libxklavier)
 BuildRequires: pkgconfig(gnome-bluetooth-1.0) >= 2.91
 BuildRequires: pkgconfig(libnm-glib-vpn)
 BuildRequires: libwacom-devel
+BuildRequires:	pkgconfig(libnma)
+BuildRequires:	pkgconfig(goa-1.0)
 
 %description
 This package contains configuration utilities for the Cinnamon desktop, which
@@ -182,8 +184,10 @@ chrpath --delete $RPM_BUILD_ROOT%{_bindir}/cinnamon-control-center
 %{_libdir}/cinnamon-control-center-1/panels/libnetwork.so
 %{_libdir}/cinnamon-control-center-1/panels/libregion.so
 %{_libdir}/cinnamon-control-center-1/panels/libwacom-properties.so
+%{_libdir}/cinnamon-control-center-1/panels/libonline-accounts.so
 
 %{_datadir}/polkit-1/rules.d/cinnamon-control-center.rules
+%{_datadir}/polkit-1/actions/org.cinnamon.controlcenter.datetime.policy
 
 %files -n %libname
 %{_libdir}/libcinnamon-control-center.so.%{major}*
