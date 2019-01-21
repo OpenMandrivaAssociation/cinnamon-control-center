@@ -97,6 +97,7 @@ BuildRequires: pkgconfig(libnm-glib-vpn)
 BuildRequires: libwacom-devel
 BuildRequires:	pkgconfig(libnma)
 BuildRequires:	pkgconfig(goa-1.0)
+BuildRequires:	tzdata
 
 %description
 This package contains configuration utilities for the Cinnamon desktop, which
