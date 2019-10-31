@@ -70,11 +70,7 @@ BuildRequires: pkgconfig(libpulse) >= 2.0
 BuildRequires: pkgconfig(libpulse-mainloop-glib) >= 2.0
 BuildRequires: pkgconfig(libcanberra)
 BuildRequires: pkgconfig(upower-glib)
-BuildRequires: pkgconfig(libnm-glib) >= 0.9
-BuildRequires: pkgconfig(libnm-gtk) >= 0.9
 BuildRequires: pkgconfig(polkit-gobject-1)
-BuildRequires: pkgconfig(NetworkManager)
-BuildRequires: pkgconfig(libnm-glib-vpn)
 BuildRequires: pkgconfig(mm-glib)
 BuildRequires: gnome-common
 BuildRequires: cups-devel
@@ -93,7 +89,6 @@ BuildRequires: pkgconfig(ibus-1.0)
 BuildRequires: pkgconfig(libgnomekbd)
 BuildRequires: pkgconfig(libxklavier)
 BuildRequires: pkgconfig(gnome-bluetooth-1.0) >= 2.91
-BuildRequires: pkgconfig(libnm-glib-vpn)
 BuildRequires: libwacom-devel
 BuildRequires:	pkgconfig(libnma)
 BuildRequires:	pkgconfig(goa-1.0)
