@@ -11,7 +11,7 @@
 
 Summary: Utilities to configure the Cinnamon desktop
 Name:    cinnamon-control-center
-Version: 4.0.1
+Version: 4.2.2
 Release: 1
 # The following files contain code from
 # ISC for panels/network/rfkill.h
@@ -23,7 +23,7 @@ Release: 1
 Group:  Graphical desktop/Cinnamon
 License: GPLv2+ and LGPLv2+ and MIT and ISC
 URL:     http://cinnamon.linuxmint.com
-Source0: cinnamon-control-center-%{version}.tar.gz
+Source0: https://github.com/linuxmint/cinnamon-control-center/archive/%{version}/%{name}-%{version}.tar.gz
 
 Requires: cinnamon-settings-daemon >= %{csd_version}
 Requires: hicolor-icon-theme
@@ -70,11 +70,7 @@ BuildRequires: pkgconfig(libpulse) >= 2.0
 BuildRequires: pkgconfig(libpulse-mainloop-glib) >= 2.0
 BuildRequires: pkgconfig(libcanberra)
 BuildRequires: pkgconfig(upower-glib)
-BuildRequires: pkgconfig(libnm-glib) >= 0.9
-BuildRequires: pkgconfig(libnm-gtk) >= 0.9
 BuildRequires: pkgconfig(polkit-gobject-1)
-BuildRequires: pkgconfig(NetworkManager)
-BuildRequires: pkgconfig(libnm-glib-vpn)
 BuildRequires: pkgconfig(mm-glib)
 BuildRequires: gnome-common
 BuildRequires: cups-devel
@@ -93,7 +89,6 @@ BuildRequires: pkgconfig(ibus-1.0)
 BuildRequires: pkgconfig(libgnomekbd)
 BuildRequires: pkgconfig(libxklavier)
 BuildRequires: pkgconfig(gnome-bluetooth-1.0) >= 2.91
-BuildRequires: pkgconfig(libnm-glib-vpn)
 BuildRequires: libwacom-devel
 BuildRequires:	pkgconfig(libnma)
 BuildRequires:	pkgconfig(goa-1.0)
@@ -129,7 +124,7 @@ chmod +x autogen.sh
 NOCONFIGURE=1 ./autogen.sh
 
 %build
-%configure2_5x \
+%configure \
         --disable-static \
         --disable-update-mimedb \
         --with-libsocialweb=no \
@@ -144,10 +139,10 @@ sed -i ./panels/common/gdm-languages.c \
 # libtool doesn't make this easy, so we do it the hard way
 sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0 /g' -e 's/    if test "$export_dynamic" = yes && test -n "$export_dynamic_flag_spec"; then/      func_append compile_command " -Wl,-O1,--as-needed"\n      func_append finalize_command " -Wl,-O1,--as-needed"\n\0/' libtool
 
-%make V=1
+%make_build V=1
 
 %install
-%makeinstall_std
+%make_install
 
 desktop-file-edit                                       \
   --set-icon=cinnamon-preferences-color                 \
