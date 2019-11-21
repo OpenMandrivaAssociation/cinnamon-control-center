@@ -77,7 +77,9 @@ BuildRequires: cups-devel
 BuildRequires: pkgconfig(libgtop-2.0)
 BuildRequires: pkgconfig(iso-codes)
 BuildRequires: pkgconfig(cheese-gtk) >= 2.91.91.1
+%ifnarch %{arm} %{armx}
 BuildRequires: pkgconfig(clutter-gst-2.0)
+%endif
 BuildRequires: pkgconfig(clutter-gtk-1.0)
 BuildRequires: pkgconfig(goa-1.0)
 BuildRequires: pkgconfig(colord)
