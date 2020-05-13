@@ -12,7 +12,7 @@
 Summary: Utilities to configure the Cinnamon desktop
 Name:    cinnamon-control-center
 Version: 4.4.0
-Release: 2
+Release: 3
 # The following files contain code from
 # ISC for panels/network/rfkill.h
 # And MIT for wacom/calibrator/calibrator.c
@@ -34,7 +34,7 @@ Requires: cinnamon-translations
 Requires: dbus-x11
 Obsoletes: %{name}-filesystem <= %{version}-%{release}
 # we need XRRGetScreenResourcesCurrent
-Requires: libxrandr >= %{libXrandr_version}
+#Requires: libxrandr >= %{libXrandr_version}
 # For the user languages
 Requires: iso-codes
 # For the printers panel
