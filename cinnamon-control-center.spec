@@ -54,8 +54,8 @@ BuildRequires: desktop-file-utils >= %{desktop_file_utils_version}
 BuildRequires: pkgconfig(xcursor)
 BuildRequires: pkgconfig(xrandr) >= %{libXrandr_version}
 BuildRequires: pkgconfig(libgnome-menu-3.0) >= %{gnome_menus_version}
-BuildRequires: cinnamon-menus-devel
-BuildRequires: cinnamon-settings-daemon-devel >= %{csd_version}
+BuildRequires: pkgconfig(libcinnamon-menu-3.0)
+BuildRequires: pkgconfig(cinnamon-settings-daemon) >= %{csd_version}
 BuildRequires: intltool >= 0.37.1
 BuildRequires: pkgconfig(xxf86misc)
 BuildRequires: pkgconfig(xkbfile)
