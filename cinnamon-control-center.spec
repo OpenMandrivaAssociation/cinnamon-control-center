@@ -150,7 +150,7 @@ chrpath --delete $RPM_BUILD_ROOT%{_bindir}/cinnamon-control-center
 
 #find_lang %{name}-timezones
 
-%files -f
+%files
 %doc AUTHORS COPYING README
 %{_datadir}/cinnamon-control-center/ui/
 %{_datadir}/applications/*.desktop
