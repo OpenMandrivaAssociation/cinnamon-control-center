@@ -11,7 +11,7 @@
 
 Summary: Utilities to configure the Cinnamon desktop
 Name:    cinnamon-control-center
-Version: 4.6.2
+Version: 4.8.0
 Release: 1
 # The following files contain code from
 # ISC for panels/network/rfkill.h
@@ -92,9 +92,10 @@ BuildRequires: pkgconfig(libgnomekbd)
 BuildRequires: pkgconfig(libxklavier)
 BuildRequires: pkgconfig(gnome-bluetooth-1.0) >= 2.91
 BuildRequires: libwacom-devel
-BuildRequires:	pkgconfig(libnma)
-BuildRequires:	pkgconfig(goa-1.0)
-BuildRequires:	tzdata
+BuildRequires: pkgconfig(libnma)
+BuildRequires: pkgconfig(goa-1.0)
+BuildRequires: tzdata
+BuildRequires: meson
 
 %description
 This package contains configuration utilities for the Cinnamon desktop, which
@@ -122,29 +123,14 @@ utilities for testing Metacity/Muffin themes.
 
 %prep
 %setup -q
-chmod +x autogen.sh
-NOCONFIGURE=1 ./autogen.sh
 
 %build
-%configure \
-        --disable-static \
-        --disable-update-mimedb \
-        --with-libsocialweb=no \
-        --enable-systemd \
-        --enable-ibus \
-        --enable-bluetooth
+%meson
 
-sed -i ./panels/common/gdm-languages.c \
-   -e "s!/usr/lib/!/usr/share/!g"
-
-# drop unneeded direct library deps with --as-needed
-# libtool doesn't make this easy, so we do it the hard way
-sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0 /g' -e 's/    if test "$export_dynamic" = yes && test -n "$export_dynamic_flag_spec"; then/      func_append compile_command " -Wl,-O1,--as-needed"\n      func_append finalize_command " -Wl,-O1,--as-needed"\n\0/' libtool
-
-%make_build V=1
+%meson_build
 
 %install
-%make_install
+%meson_install
 
 desktop-file-edit                                       \
   --set-icon=cinnamon-preferences-color                 \
