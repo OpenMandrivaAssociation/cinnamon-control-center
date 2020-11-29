@@ -154,24 +154,24 @@ chrpath --delete $RPM_BUILD_ROOT%{_bindir}/cinnamon-control-center
 %doc AUTHORS COPYING README
 %{_datadir}/cinnamon-control-center/ui/
 %{_datadir}/applications/*.desktop
-%{_datadir}/desktop-directories/*
+#{_datadir}/desktop-directories/*
 %{_datadir}/icons/hicolor/*/*/*
-%{_datadir}/cinnamon-control-center/datetime/
+#{_datadir}/cinnamon-control-center/datetime/
 # list all binaries explicitly, so we notice if one goes missing
 %{_bindir}/cinnamon-control-center
-%config %{_sysconfdir}/xdg/menus/cinnamoncc.menu
+#config #{_sysconfdir}/xdg/menus/cinnamoncc.menu
 %dir %{_libdir}/cinnamon-control-center-1/
 %dir %{_libdir}/cinnamon-control-center-1/panels
 %{_libdir}/cinnamon-control-center-1/panels/libcolor.so
-%{_libdir}/cinnamon-control-center-1/panels/libdate_time.so
+#{_libdir}/cinnamon-control-center-1/panels/libdate_time.so
 %{_libdir}/cinnamon-control-center-1/panels/libdisplay.so
 %{_libdir}/cinnamon-control-center-1/panels/libnetwork.so
 %{_libdir}/cinnamon-control-center-1/panels/libregion.so
 %{_libdir}/cinnamon-control-center-1/panels/libwacom-properties.so
 %{_libdir}/cinnamon-control-center-1/panels/libonline-accounts.so
 
-%{_datadir}/polkit-1/rules.d/cinnamon-control-center.rules
-%{_datadir}/polkit-1/actions/org.cinnamon.controlcenter.datetime.policy
+#{_datadir}/polkit-1/rules.d/cinnamon-control-center.rules
+#{_datadir}/polkit-1/actions/org.cinnamon.controlcenter.datetime.policy
 
 %files -n %libname
 %{_libdir}/libcinnamon-control-center.so.%{major}*
