@@ -148,9 +148,9 @@ chrpath --delete $RPM_BUILD_ROOT%{_libdir}/cinnamon-control-center-1/panels/*.so
 chrpath --delete $RPM_BUILD_ROOT%{_bindir}/cinnamon-control-center
 
 
-%find_lang %{name}-timezones
+#find_lang %{name}-timezones
 
-%files -f %{name}-timezones.lang
+%files -f
 %doc AUTHORS COPYING README
 %{_datadir}/cinnamon-control-center/ui/
 %{_datadir}/applications/*.desktop
