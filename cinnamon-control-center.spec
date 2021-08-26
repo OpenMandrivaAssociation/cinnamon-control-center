@@ -169,6 +169,7 @@ chrpath --delete $RPM_BUILD_ROOT%{_bindir}/cinnamon-control-center
 %{_libdir}/cinnamon-control-center-1/panels/libregion.so
 %{_libdir}/cinnamon-control-center-1/panels/libwacom-properties.so
 %{_libdir}/cinnamon-control-center-1/panels/libonline-accounts.so
+%{_datadir}/glib-2.0/schemas/org.cinnamon.control-center.display.gschema.xml
 
 #{_datadir}/polkit-1/rules.d/cinnamon-control-center.rules
 #{_datadir}/polkit-1/actions/org.cinnamon.controlcenter.datetime.policy
