@@ -11,7 +11,7 @@
 
 Summary: Utilities to configure the Cinnamon desktop
 Name:    cinnamon-control-center
-Version: 5.0.2
+Version: 5.2.0
 Release: 1
 # The following files contain code from
 # ISC for panels/network/rfkill.h
