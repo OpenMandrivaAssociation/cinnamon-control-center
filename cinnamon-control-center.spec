@@ -11,7 +11,7 @@
 
 Summary: Utilities to configure the Cinnamon desktop
 Name:    cinnamon-control-center
-Version: 5.2.1
+Version: 5.4.6
 Release: 1
 # The following files contain code from
 # ISC for panels/network/rfkill.h
@@ -44,6 +44,7 @@ Requires: networkmanager-applet
 # For the info/details panel
 Requires: glxinfo
 Requires: xdriinfo
+Requires: gnome-color-manager
 
 BuildRequires: pkgconfig(glib-2.0) >= %{glib2_version}
 BuildRequires: pkgconfig(gtk+-3.0) >= %{gtk3_version}
@@ -92,8 +93,15 @@ BuildRequires: pkgconfig(libgnomekbd)
 BuildRequires: pkgconfig(libxklavier)
 BuildRequires: pkgconfig(gnome-bluetooth-1.0) >= 2.91
 BuildRequires: libwacom-devel
+BuildRequires: pkgconfig(libnm) 
 BuildRequires: pkgconfig(libnma)
 BuildRequires: pkgconfig(goa-1.0)
+BuildRequires: pkgconfig(libxml-2.0)
+BuildRequires: pkgconfig(libwacom)
+BuildRequires: pkgconfig(mm-glib) >= 0.7
+BuildRequires: pkgconfig(polkit-agent-1)
+BuildRequires: pkgconfig(upower-glib)
+BuildRequires: pkgconfig(xkbfile)
 BuildRequires: tzdata
 BuildRequires: meson
 
