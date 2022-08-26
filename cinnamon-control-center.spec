@@ -140,13 +140,13 @@ utilities for testing Metacity/Muffin themes.
 %install
 %meson_install
 
-desktop-file-edit                                       \
-  --set-icon=cinnamon-preferences-color                 \
-  $RPM_BUILD_ROOT%{_datadir}/applications/cinnamon-color-panel.desktop
-desktop-file-install                                    \
-  --delete-original                                     \
-  --dir $RPM_BUILD_ROOT%{_datadir}/applications         \
-  $RPM_BUILD_ROOT%{_datadir}/applications/*.desktop
+#desktop-file-edit                                       \
+#  --set-icon=cinnamon-preferences-color                 \
+#  $RPM_BUILD_ROOT%{_datadir}/applications/cinnamon-color-panel.desktop
+#desktop-file-install                                    \
+#  --delete-original                                     \
+#  --dir $RPM_BUILD_ROOT%{_datadir}/applications         \
+#  $RPM_BUILD_ROOT%{_datadir}/applications/*.desktop
 
 # remove useless libtool archive files
 find $RPM_BUILD_ROOT -name '*.la' -delete
