@@ -162,9 +162,8 @@ chrpath --delete $RPM_BUILD_ROOT%{_bindir}/cinnamon-control-center
 %doc AUTHORS COPYING README
 %{_datadir}/cinnamon-control-center/ui/
 %{_datadir}/applications/*.desktop
-#{_datadir}/desktop-directories/*
+%{_datadir}/cinnamon-control-center/panels/
 %{_datadir}/icons/hicolor/*/*/*
-#{_datadir}/cinnamon-control-center/datetime/
 # list all binaries explicitly, so we notice if one goes missing
 %{_bindir}/cinnamon-control-center
 #config #{_sysconfdir}/xdg/menus/cinnamoncc.menu
