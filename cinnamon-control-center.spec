@@ -48,60 +48,29 @@ Requires: gnome-color-manager
 
 BuildRequires: pkgconfig(glib-2.0) >= %{glib2_version}
 BuildRequires: pkgconfig(gtk+-3.0) >= %{gtk3_version}
-BuildRequires: pkgconfig(gdk-pixbuf-2.0) >= 2.23.0
-BuildRequires: pkgconfig(librsvg-2.0)
 BuildRequires: pkgconfig(cinnamon-desktop)
 BuildRequires: desktop-file-utils >= %{desktop_file_utils_version}
-BuildRequires: pkgconfig(xcursor)
-BuildRequires: pkgconfig(xrandr) >= %{libXrandr_version}
-BuildRequires: pkgconfig(libgnome-menu-3.0) >= %{gnome_menus_version}
 BuildRequires: pkgconfig(libcinnamon-menu-3.0)
-BuildRequires: pkgconfig(cinnamon-settings-daemon) >= %{csd_version}
 BuildRequires: intltool >= 0.37.1
-BuildRequires: pkgconfig(xxf86misc)
 BuildRequires: pkgconfig(xkbfile)
-BuildRequires: pkgconfig(xscrnsaver)
 BuildRequires: gnome-doc-utils
-BuildRequires: pkgconfig(libglade-2.0)
-BuildRequires: pkgconfig(libxml-2.0)
-BuildRequires: pkgconfig(dbus-1) >= 0.90
-BuildRequires: pkgconfig(dbus-glib-1) >= 0.70
 BuildRequires: chrpath
-BuildRequires: pkgconfig(libpulse) >= 2.0
-BuildRequires: pkgconfig(libpulse-mainloop-glib) >= 2.0
-BuildRequires: pkgconfig(libcanberra)
 BuildRequires: pkgconfig(upower-glib)
 BuildRequires: pkgconfig(polkit-gobject-1)
 BuildRequires: pkgconfig(mm-glib)
-BuildRequires: gnome-common
-BuildRequires: cups-devel
-BuildRequires: pkgconfig(libgtop-2.0)
 BuildRequires: pkgconfig(iso-codes)
-BuildRequires: pkgconfig(cheese-gtk) >= 2.91.91.1
-%ifnarch %{arm} %{armx}
-BuildRequires: pkgconfig(clutter-gst-2.0)
-%endif
-BuildRequires: pkgconfig(clutter-gtk-1.0)
 BuildRequires: pkgconfig(goa-1.0)
 BuildRequires: pkgconfig(colord)
 BuildRequires: pkgconfig(libnotify)
 BuildRequires: gnome-doc-utils
 BuildRequires: pkgconfig(systemd)
-BuildRequires: pkgconfig(pwquality)
-BuildRequires: pkgconfig(ibus-1.0)
 BuildRequires: pkgconfig(libgnomekbd)
 BuildRequires: pkgconfig(libxklavier)
-BuildRequires: pkgconfig(gnome-bluetooth-1.0) >= 2.91
-BuildRequires: libwacom-devel
 BuildRequires: pkgconfig(libnm) 
 BuildRequires: pkgconfig(libnma)
-BuildRequires: pkgconfig(goa-1.0)
-BuildRequires: pkgconfig(libxml-2.0)
 BuildRequires: pkgconfig(libwacom)
 BuildRequires: pkgconfig(mm-glib) >= 0.7
-BuildRequires: pkgconfig(polkit-agent-1)
-BuildRequires: pkgconfig(upower-glib)
-BuildRequires: pkgconfig(xkbfile)
+BuildRequires: pkgconfig(x11)
 BuildRequires: tzdata
 BuildRequires: meson
 
