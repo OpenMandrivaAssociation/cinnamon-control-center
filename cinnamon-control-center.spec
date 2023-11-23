@@ -11,7 +11,7 @@
 
 Summary: Utilities to configure the Cinnamon desktop
 Name:    cinnamon-control-center
-Version: 5.8.2
+Version: 6.0.0
 Release: 1
 # The following files contain code from
 # ISC for panels/network/rfkill.h
@@ -50,9 +50,10 @@ BuildRequires: pkgconfig(glib-2.0) >= %{glib2_version}
 BuildRequires: pkgconfig(gtk+-3.0) >= %{gtk3_version}
 BuildRequires: pkgconfig(cinnamon-desktop)
 BuildRequires: desktop-file-utils >= %{desktop_file_utils_version}
-BuildRequires: pkgconfig(libcinnamon-menu-3.0)
+BuildRequires: pkgconfig(libcinnamon-menu-3.0) >= 6.0.0
 BuildRequires: intltool >= 0.37.1
 BuildRequires: pkgconfig(xkbfile)
+BuildRequires: pkgconfig(xproto)
 BuildRequires: gnome-doc-utils
 BuildRequires: chrpath
 BuildRequires: pkgconfig(upower-glib)
@@ -65,11 +66,11 @@ BuildRequires: pkgconfig(libnotify)
 BuildRequires: gnome-doc-utils
 BuildRequires: pkgconfig(systemd)
 BuildRequires: pkgconfig(libgnomekbd)
+BuildRequires: pkgconfig(libgnomekbdui)
 BuildRequires: pkgconfig(libxklavier)
 BuildRequires: pkgconfig(libnm) 
 BuildRequires: pkgconfig(libnma)
 BuildRequires: pkgconfig(libwacom)
-BuildRequires: pkgconfig(mm-glib) >= 0.7
 BuildRequires: pkgconfig(x11)
 BuildRequires: tzdata
 BuildRequires: meson
