@@ -22,7 +22,7 @@ Release: 1
 # wacom/calibrator/main.c
 Group:  Graphical desktop/Cinnamon
 License: GPLv2+ and LGPLv2+ and MIT and ISC
-URL:     http://cinnamon.linuxmint.com
+URL:     https://cinnamon.linuxmint.com
 Source0: https://github.com/linuxmint/cinnamon-control-center/archive/%{version}/%{name}-%{version}.tar.gz
 
 Requires: cinnamon-settings-daemon >= %{csd_version}
