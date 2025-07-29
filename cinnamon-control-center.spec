@@ -12,7 +12,7 @@
 Summary: Utilities to configure the Cinnamon desktop
 Name:    cinnamon-control-center
 Version: 6.4.1
-Release: 1
+Release: 2
 # The following files contain code from
 # ISC for panels/network/rfkill.h
 # And MIT for wacom/calibrator/calibrator.c
@@ -25,6 +25,7 @@ License: GPLv2+ and LGPLv2+ and MIT and ISC
 URL:     https://cinnamon.linuxmint.com
 Source0: https://github.com/linuxmint/cinnamon-control-center/archive/%{version}/%{name}-%{version}.tar.gz
 
+Requires: %{libname} = %{version}-%{release}
 Requires: cinnamon-settings-daemon >= %{csd_version}
 Requires: hicolor-icon-theme
 Requires: adwaita-icon-theme
@@ -73,6 +74,7 @@ BuildRequires: pkgconfig(libnma)
 BuildRequires: pkgconfig(libwacom)
 BuildRequires: pkgconfig(x11)
 BuildRequires: tzdata
+BuildRequires: mold
 BuildRequires: meson
 
 %description
@@ -100,9 +102,12 @@ utilities for testing Metacity/Muffin themes.
 
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
+%global optflags %{optflags} -fuse-ld=mold
+export CC=gcc
+export CXX=g++
 %meson
 
 %meson_build
