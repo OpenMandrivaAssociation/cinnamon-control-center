@@ -11,7 +11,7 @@
 
 Summary: Utilities to configure the Cinnamon desktop
 Name:    cinnamon-control-center
-Version: 6.4.2
+Version: 6.6.0
 Release: 1
 # The following files contain code from
 # ISC for panels/network/rfkill.h
@@ -47,6 +47,8 @@ Requires: glxinfo
 Requires: xdriinfo
 Requires: gnome-color-manager
 
+BuildSystem:   meson
+
 BuildRequires: pkgconfig(glib-2.0) >= %{glib2_version}
 BuildRequires: pkgconfig(gtk+-3.0) >= %{gtk3_version}
 BuildRequires: pkgconfig(cinnamon-desktop)
@@ -75,7 +77,6 @@ BuildRequires: pkgconfig(libwacom)
 BuildRequires: pkgconfig(x11)
 BuildRequires: tzdata
 BuildRequires: mold
-BuildRequires: meson
 
 %description
 This package contains configuration utilities for the Cinnamon desktop, which
@@ -101,19 +102,11 @@ Header files and libraries for developing Muffin plugins. Also includes
 utilities for testing Metacity/Muffin themes.
 
 
-%prep
-%autosetup -p1
-
-%build
+%conf -p
 %global optflags %{optflags} -fuse-ld=mold
 export CC=gcc
 export CXX=g++
-%meson
-
-%meson_build
-
-%install
-%meson_install
+%install -a
 
 #desktop-file-edit                                       \
 #  --set-icon=cinnamon-preferences-color                 \
@@ -124,11 +117,11 @@ export CXX=g++
 #  $RPM_BUILD_ROOT%{_datadir}/applications/*.desktop
 
 # remove useless libtool archive files
-find $RPM_BUILD_ROOT -name '*.la' -delete
+find %{buildroot} -name '*.la' -delete
 
 # remove rpath
-chrpath --delete $RPM_BUILD_ROOT%{_libdir}/cinnamon-control-center-1/panels/*.so
-chrpath --delete $RPM_BUILD_ROOT%{_bindir}/cinnamon-control-center
+chrpath --delete %{buildroot}/%{_libdir}/cinnamon-control-center-1/panels/*.so
+chrpath --delete %{buildroot}/%{_bindir}/cinnamon-control-center
 
 
 #find_lang %{name}-timezones
@@ -148,7 +141,7 @@ chrpath --delete $RPM_BUILD_ROOT%{_bindir}/cinnamon-control-center
 #{_libdir}/cinnamon-control-center-1/panels/libdate_time.so
 %{_libdir}/cinnamon-control-center-1/panels/libdisplay.so
 %{_libdir}/cinnamon-control-center-1/panels/libnetwork.so
-%{_libdir}/cinnamon-control-center-1/panels/libregion.so
+# %{_libdir}/cinnamon-control-center-1/panels/libregion.so
 %{_libdir}/cinnamon-control-center-1/panels/libwacom-properties.so
 #{_libdir}/cinnamon-control-center-1/panels/libonline-accounts.so
 %{_datadir}/glib-2.0/schemas/org.cinnamon.control-center.display.gschema.xml
